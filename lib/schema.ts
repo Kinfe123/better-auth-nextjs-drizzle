@@ -1,52 +1,52 @@
-import { postgresqlTable, text, timestamp, boolean, integer } from "drizzle-orm/postgresql-core";
+import { pgTable, uuid, text, timestamp, boolean, integer } from "drizzle-orm/pg-core";
 
-export const user = postgresqlTable("user", {
-					id: text('id').primaryKey(),
-					name: undefined.notNull(),
- email: undefined.notNull().unique(),
- emailVerified: undefined.notNull(),
- image: undefined,
- createdAt: undefined.notNull(),
- updatedAt: undefined.notNull(),
- role: undefined,
- banned: undefined,
- banReason: undefined,
- banExpires: undefined
+export const user = pgTable("user", {
+					id: uuid('id').primaryKey(),
+					name: text('name').notNull(),
+ email: text('email').notNull().unique(),
+ emailVerified: boolean('email_verified').notNull(),
+ image: text('image'),
+ createdAt: timestamp('created_at').notNull(),
+ updatedAt: timestamp('updated_at').notNull(),
+ role: text('role'),
+ banned: boolean('banned'),
+ banReason: text('ban_reason'),
+ banExpires: timestamp('ban_expires')
 				});
 
-export const session = postgresqlTable("session", {
-					id: text('id').primaryKey(),
-					expiresAt: undefined.notNull(),
- token: undefined.notNull().unique(),
- createdAt: undefined.notNull(),
- updatedAt: undefined.notNull(),
- ipAddress: undefined,
- userAgent: undefined,
- userId: text('user_id').notNull().references(()=> user.id, { onDelete: 'cascade' }),
- impersonatedBy: undefined
+export const session = pgTable("session", {
+					id: uuid('id').primaryKey(),
+					expiresAt: timestamp('expires_at').notNull(),
+ token: text('token').notNull().unique(),
+ createdAt: timestamp('created_at').notNull(),
+ updatedAt: timestamp('updated_at').notNull(),
+ ipAddress: text('ip_address'),
+ userAgent: text('user_agent'),
+ userId: uuid('user_id').notNull().references(()=> user.id, { onDelete: 'cascade' }),
+ impersonatedBy: text('impersonated_by')
 				});
 
-export const account = postgresqlTable("account", {
-					id: text('id').primaryKey(),
-					accountId: undefined.notNull(),
- providerId: undefined.notNull(),
- userId: text('user_id').notNull().references(()=> user.id, { onDelete: 'cascade' }),
- accessToken: undefined,
- refreshToken: undefined,
- idToken: undefined,
- accessTokenExpiresAt: undefined,
- refreshTokenExpiresAt: undefined,
- scope: undefined,
- password: undefined,
- createdAt: undefined.notNull(),
- updatedAt: undefined.notNull()
+export const account = pgTable("account", {
+					id: uuid('id').primaryKey(),
+					accountId: text('account_id').notNull(),
+ providerId: text('provider_id').notNull(),
+ userId: uuid('user_id').notNull().references(()=> user.id, { onDelete: 'cascade' }),
+ accessToken: text('access_token'),
+ refreshToken: text('refresh_token'),
+ idToken: text('id_token'),
+ accessTokenExpiresAt: timestamp('access_token_expires_at'),
+ refreshTokenExpiresAt: timestamp('refresh_token_expires_at'),
+ scope: text('scope'),
+ password: text('password'),
+ createdAt: timestamp('created_at').notNull(),
+ updatedAt: timestamp('updated_at').notNull()
 				});
 
-export const verification = postgresqlTable("verification", {
-					id: text('id').primaryKey(),
-					identifier: undefined.notNull(),
- value: undefined.notNull(),
- expiresAt: undefined.notNull(),
- createdAt: undefined,
- updatedAt: undefined
+export const verification = pgTable("verification", {
+					id: uuid('id').primaryKey(),
+					identifier: text('identifier').notNull(),
+ value: text('value').notNull(),
+ expiresAt: timestamp('expires_at').notNull(),
+ createdAt: timestamp('created_at'),
+ updatedAt: timestamp('updated_at')
 				});
