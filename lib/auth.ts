@@ -4,6 +4,10 @@ import { nextCookies } from "better-auth/next-js";
 import { admin } from "better-auth/plugins";
 import { db } from "./db";
 export const auth = betterAuth({
+  database: drizzleAdapter(db, {
+    provider: "pg",
+    usePlural: true,
+  }),
   advanced: {
     ipAddress: {
       ipAddressHeaders: ["x-client-ip", "x-forwarded-for"],
@@ -50,7 +54,4 @@ export const auth = betterAuth({
       clientSecret: process.env.TWITTER_CLIENT_SECRET!,
     },
   },
-  database: drizzleAdapter(db, {
-    provider: "postgresql",
-  }),
 });
