@@ -140,7 +140,7 @@ export default function HeroSection() {
           </div>
           <p className="text-zinc-600 dark:text-zinc-400 tracking-tight text-center max-w-2xl mb-10">
             Better-Auth is a complete authentication solution for your Next.js
-            projects, powered by Prisma and styled with Shadcn UI components.
+            projects, powered by Drizzle and styled with Shadcn UI components.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full max-w-md mx-auto">
             <Link href={"https://github.com/Kinfe123/better-auth-nextjs"}>
@@ -167,7 +167,7 @@ export default function HeroSection() {
               },
               {
                 title: "Database Ready",
-                description: "Prisma ORM integration",
+                description: "Drizzle ORM integration",
               },
               {
                 title: "UI Components",
