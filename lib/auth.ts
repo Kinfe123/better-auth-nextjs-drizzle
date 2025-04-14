@@ -23,6 +23,48 @@ export const auth = betterAuth({
         },
       },
     },
+    hooks: {
+      before: [
+        {
+          matcher(ctx) {
+            return ctx.path.startsWith("/api/auth/sign-in/social");
+          },
+          handler: async (ctx) => {
+            console.log({ ctx });
+            // Get the OAuth data from the context
+            const { code, state } = ctx.query;
+
+            // You can access the provider info
+            const provider = ctx.context.provider;
+            console.log({ provider });
+            // You can access the user info before it's created
+            const userInfo = await provider.getUserInfo(ctx.context.tokens);
+            console.log({ userInfo });
+            // Check for existing Discord ID
+            if (provider.id === "discord") {
+              const existingUser =
+                await ctx.context.internalAdapter.findOAuthUser(
+                  userInfo.email,
+                  userInfo.id,
+                  "discord",
+                );
+
+              if (existingUser) {
+                // Handle existing user case
+                // You can modify the response or redirect
+                return ctx.json({
+                  user: existingUser.user,
+                  isExisting: true,
+                });
+              }
+            }
+
+            // Continue with normal flow
+            return ctx.next();
+          },
+        },
+      ],
+    },
     user: {
       update: {
         before: async (session) => {
