@@ -51,7 +51,7 @@ const data = {
     },
     {
       title: "Account",
-      url: "/dashboard/account",
+      url: "/dashboard/profile",
       icon: IconUserCircle,
     },
     {
