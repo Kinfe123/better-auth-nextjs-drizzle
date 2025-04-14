@@ -37,26 +37,31 @@ export function ForgetPassword({
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    const res = await authClient.forgetPassword({
-      email,
-      redirectTo: "/reset-password",
-      fetchOptions: {
-        onSuccess: () => {
-          toast.success(
-            "We have successfully sent your a verification email to your account.",
-          );
+    try {
+      const res = await authClient.forgetPassword({
+        email,
+        redirectTo: "/reset-password",
+        fetchOptions: {
+          onSuccess: (ctx) => {
+            console.log("success on call: ", ctx);
+            toast.success(
+              "We have successfully sent your a verification email to your account.",
+            );
+          },
+          onError: (ctx) => {
+            console.log("Error on call: ", ctx);
+            alert(ctx.error.message);
+          },
+          onResponse: () => {
+            setLoading(false);
+            setIsSubmitting(false);
+          },
         },
-        onError: (ctx) => {
-          alert(ctx.error.message);
-        },
-        onResponse: () => {
-          setLoading(false);
-          setIsSubmitting(false);
-        },
-      },
-    });
-    console.log("forget password");
-    console.log({ res });
+      });
+    } catch (err) {
+      console.log("Error on call: ", err);
+      setError("An error occurred");
+    }
   };
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>

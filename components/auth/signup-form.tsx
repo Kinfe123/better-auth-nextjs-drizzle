@@ -159,7 +159,6 @@ export function SignupForm({
                   provider: "google",
                   fetchOptions: {
                     onRequest: (ctx) => {
-                      console.log({ ctx });
                       toast.loading("Authenticating...");
                     },
                     onSuccess: (ctx) => {
@@ -211,7 +210,6 @@ export function SignupForm({
                   provider: "twitter",
                   fetchOptions: {
                     onRequest: (ctx) => {
-                      console.log({ ctx });
                       toast.loading("Authenticating...");
                     },
                     onSuccess: (ctx) => {
@@ -243,7 +241,6 @@ export function SignupForm({
                   provider: "github",
                   fetchOptions: {
                     onRequest: (ctx) => {
-                      console.log({ ctx });
                       toast.loading("Authenticating...");
                     },
                     onSuccess: (ctx) => {
@@ -305,7 +302,6 @@ export function SignupForm({
                   </clipPath>
                 </defs>
               </svg>
-              {/* Continue with Github */}
             </button>
           </div>
         </CardContent>
