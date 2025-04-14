@@ -219,7 +219,9 @@ export default function HeroSection() {
             projects, powered by Drizzle and styled with Shadcn UI components.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full max-w-md mx-auto">
-            <Link href={"https://github.com/Kinfe123/better-auth-nextjs"}>
+            <Link
+              href={"https://github.com/Kinfe123/better-auth-nextjs-drizzle"}
+            >
               <Button className="rounded-md cursor-pointer tracking-tight group bg-zinc-100 text-black hover:bg-zinc-200 h-12 text-base">
                 <Github className="mr-2 h-5 w-5" />
                 Get the repo{" "}
