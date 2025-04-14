@@ -22,7 +22,7 @@ export default function HeroSection() {
             width="100"
             height="100"
             viewBox="0 0 1024 256"
-            fill="none"
+            fill="currentColor"
             xmlns="http://www.w3.org/2000/svg"
           >
             <rect width="1024" height="256" fill="black" />
@@ -64,12 +64,12 @@ export default function HeroSection() {
             />
           </svg>
           <hr className="h-[20px] w-px bg-black dark:bg-zinc-500/40" />
-          <div className="flex -space-x-3 items-center">
+          <div className="flex -space-x-4 items-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="80"
               height="50"
-              fill="none"
+              fill="currentColor"
               viewBox="0 0 160 160"
             >
               <rect
@@ -101,13 +101,13 @@ export default function HeroSection() {
                 transform="matrix(.87303 .48767 -.49721 .86763 94.957 67.304)"
               />
             </svg>
-            <p>Drizzle</p>
+            <p className="text-black dark:text-white">Drizzle</p>
           </div>
           <hr className="h-[20px] w-px bg-black dark:bg-zinc-500/40" />
 
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            fill="white"
+            fill="currentColor"
             width="60"
             height="60"
             viewBox="0 0 394 79"
