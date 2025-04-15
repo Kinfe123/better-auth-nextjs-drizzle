@@ -61,7 +61,7 @@ export default async function page() {
           </div>
           <div className="flex items-center space-x-6">
             <Link
-              href="https?/github.com/better-auth/better-auth"
+              href="https://github.com/better-auth/better-auth"
               className="text-sm flex gap-2 items-center text-zinc-700 dark:text-zinc-400 dark:hover:text-white"
             >
               Github <ArrowUpRight className="w-3 h-3" />
