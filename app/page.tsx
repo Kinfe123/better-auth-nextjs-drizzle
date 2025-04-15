@@ -57,7 +57,7 @@ export default async function page() {
         <div className="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between">
           <div className="flex items-center mb-4 md:mb-0">
             <Shield className="h-5 w-5 mr-2" />
-            <span className="text-sm font-medium">Auth Starter Kit</span>
+            <span className="text-sm font-medium">Auth Starter</span>
           </div>
           <div className="flex items-center space-x-6">
             <Link

@@ -12,7 +12,7 @@ const Line = ({ className = "" }) => (
 );
 export default function HeroSection() {
   return (
-    <div className="bg-transparent text-white flex flex-col">
+    <div className="bg-radial-gradient text-white flex flex-col">
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 border border-zinc-800"></div>
       </div>
