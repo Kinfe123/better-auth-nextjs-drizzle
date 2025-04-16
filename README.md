@@ -21,11 +21,11 @@ A complete authentication solution using Better Auth, Next.js, and Prisma.
 
 ## Installation
 
-1. **Create a new Next.js project**
+1. **Clone the project**
 
 ```bash
 git clone https://github.com/Kinfe123/better-auth-nextjs-drizzle
-cd better-auth-nextjs
+cd better-auth-nextjs-drizzle
 ```
 
 2. **Install dependencies**
