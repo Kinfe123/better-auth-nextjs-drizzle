@@ -47,6 +47,10 @@ DATABASE_URL="postgresql://user:password@localhost:5432/mydb?schema=public"
 AUTH_SECRET="your-auth-secret" # Generate with: openssl rand -base64 32
 GOOGLE_CLIENT_ID="your-google-client-id"
 GOOGLE_CLIENT_SECRET="your-google-client-secret"
+TWITTER_CLIENT_ID="your-twitter-client-id"
+TWITTER_CLIENT_SECRET="your-twitter-client-secret"
+GITHUB_CLIENT_ID="your-github-client-id"
+GITHUB_CLIENT_SECRET="your-github-client-secret"
 ```
 
 5. **Run database migrations**
