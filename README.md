@@ -57,7 +57,7 @@ GITHUB_CLIENT_SECRET="your-github-client-secret"
 
 ```bash
 pnpm drizzle-kit generate
-pnpm drizzle-kit db push
+pnpm drizzle-kit push
 ```
 
 6. **Run dev server**
