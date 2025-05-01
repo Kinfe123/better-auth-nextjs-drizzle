@@ -1,7 +1,7 @@
 import { APIError, betterAuth } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { nextCookies } from "better-auth/next-js";
-import { admin, createAuthMiddleware } from "better-auth/plugins";
+import { admin, createAuthMiddleware, organization } from "better-auth/plugins";
 import { db } from "./db";
 export const auth = betterAuth({
   database: drizzleAdapter(db, {
@@ -14,7 +14,7 @@ export const auth = betterAuth({
     before: createAuthMiddleware(async (ctx) => {}),
   },
   account: {},
-  plugins: [admin(), nextCookies()],
+  plugins: [admin(), nextCookies(), organization({})],
   databaseHooks: {
     session: {
       create: {
